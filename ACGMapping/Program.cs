@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using NLog.Web;
 
 namespace ACGMapping
 {
@@ -13,14 +14,18 @@ namespace ACGMapping
     {
         public static void Main(string[] args)
         {
+            NLogBuilder.ConfigureNLog("NLog.config").GetCurrentClassLogger();
+
             CreateHostBuilder(args).Build().Run();
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
-            Host.CreateDefaultBuilder(args)
-                .ConfigureWebHostDefaults(webBuilder =>
-                {
-                    webBuilder.UseStartup<Startup>();
-                });
+            Host.CreateDefaultBuilder(args).ConfigureAppConfiguration((webHostBuilder, configurationBinder) =>
+            {
+                configurationBinder.AddJsonFile("appsettings.json", optional: true);
+            }).ConfigureWebHostDefaults(webBuilder =>
+            {
+                webBuilder.UseStartup<Startup>();
+            }).UseNLog();
     }
 }

@@ -1,0 +1,44 @@
+﻿@model ACGMapping.Models.ACGInfoModel
+@{
+    ViewBag.Title = "SupplyInfo";
+    Layout = "_Layout";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="col-lg-4">
+                @Html.DisplayNameFor(o => o.Name)
+                @Html.TextBoxFor(o => o.Name, "", new { @class = "form-control" })
+            </div>
+            <div class="col-lg-4">
+                @Html.DisplayNameFor(o => o.PublicTime)
+                @Html.TextBoxFor(o => o.PublicTime, "", new { @class = "form-control" })
+            </div>
+            <div class="col-lg-4">
+                @Html.DisplayNameFor(o => o.ComicEpisode)
+                @Html.TextBoxFor(o => o.ComicEpisode, "", new { @class = "form-control" })
+            </div>
+            <div class="col-lg-4">
+                @Html.DisplayNameFor(o => o.AnimeSeason)
+                @Html.TextBoxFor(o => o.AnimeSeason, "", new { @class = "form-control" })
+            </div>
+            <div class="col-lg-4">
+                @Html.DisplayNameFor(o => o.AnimeEpisode)
+                @Html.TextBoxFor(o => o.AnimeEpisode, "", new { @class = "form-control" })
+            </div>
+            <div class="col-lg-4">
+                @Html.DisplayNameFor(o => o.NovelEpisode)
+                @Html.TextBoxFor(o => o.NovelEpisode, "", new { @class = "form-control" })
+            </div>
+            <div class="col-lg-4">
+                @Html.DisplayNameFor(o => o.Profile)
+                @Html.TextBoxFor(o => o.Profile, "", new { @class = "form-control" })
+            </div>
+            <div class="col-lg-4">
+                @Html.DisplayNameFor(o => o.ThumbnailPath)
+                @Html.TextBoxFor(o => o.ThumbnailPath, "", new { @class = "form-control" })
+            </div>
+        </div>
+    </div>
+</div>
