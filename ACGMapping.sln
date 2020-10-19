@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29905.134
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ACGMapping", "ACGMapping\ACGMapping.csproj", "{A2059C89-AB21-4D5E-9E2F-15C595A0B3C5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A2059C89-AB21-4D5E-9E2F-15C595A0B3C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A2059C89-AB21-4D5E-9E2F-15C595A0B3C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A2059C89-AB21-4D5E-9E2F-15C595A0B3C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A2059C89-AB21-4D5E-9E2F-15C595A0B3C5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7DEEA458-26AA-4E6D-B389-19E7166991F2}
+	EndGlobalSection
+EndGlobal

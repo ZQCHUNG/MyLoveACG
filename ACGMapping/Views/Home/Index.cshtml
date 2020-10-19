@@ -1,0 +1,45 @@
+﻿@{
+    ViewData["Title"] = "Home page";
+}
+<style type="text/css">
+    .showBorder {
+        border: black solid 1px;
+    }
+
+    .animaTopic {
+        height: 160px;
+    }
+
+    .hotAnimaMapping {
+    }
+
+    .BaHaAnima {
+        height: 160px;
+    }
+
+    .acgMappingContent {
+    }
+
+    #createNew {
+        margin: 10px;
+    }
+
+    #createNew:hover{
+        cursor: pointer;
+    }
+</style>
+
+<div class="row" style="margin-left: 20px; margin-right: 20px;">
+    <div class="col-lg-12 ">
+        <a class="btn btn-danger" id="createNew" href="@Url.Action("Create","Anima")">新增</a>
+    </div>
+    <div class="col-lg-5 showBorder animaTopic">animaTopic</div>
+    <div class="col-lg-6 showBorder hotAnimaMapping">hotAnimaMapping</div>
+    <div class="row"></div>
+    <div class="col-lg-3 showBorder BaHaAnima">BaHaAnima</div>
+    <div class="col-lg-8 showBorder acgMappingContent">Content</div>
+</div>
+
+<script type="text/javascript">
+
+</script>
