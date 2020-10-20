@@ -11,5 +11,6 @@ namespace ACGMapping.InfraStructure.DB
         }
 
         public DbSet<ACGMappingTable> ACGMappingTable { get; set; } 
+        public DbSet<ACGBasicIntroductionTable> ACGBasicIntroductionTable { get; set; }
     }
 }

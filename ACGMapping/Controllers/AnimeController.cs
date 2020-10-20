@@ -10,26 +10,30 @@ namespace ACGMapping.Controllers
     public class AnimeController : Controller
     {
         private readonly IRepository<ACGMappingTable, int> _acgMappingRepository;
+        private readonly IRepository<ACGBasicIntroductionTable, int> _acgBasicIntroductionRepository;
+        private readonly ElementGeneratorService _elementGeneratorService = new ElementGeneratorService();
 
-        public AnimeController(IRepository<ACGMappingTable, int> acgMappingRepository)
+        public AnimeController(IRepository<ACGMappingTable, int> acgMappingRepository,
+            IRepository<ACGBasicIntroductionTable, int> acgBasicIntroductionRepository
+            )
         {
             _acgMappingRepository = acgMappingRepository;
+            _acgBasicIntroductionRepository = acgBasicIntroductionRepository;
         }
 
         public IActionResult Index(AnimeViewModel model)
         {
-            var elementGeneratorService = new ElementGeneratorService();
-
             var names = _acgMappingRepository.Find(o => o.Status != 99).Select(o => o.Name).Distinct().ToList();
             
-            model.Names = elementGeneratorService.CreateListItems(names, "-1");
+            model.Names = _elementGeneratorService.CreateListItems(names, "-1");
 
             return View(model);
         }
 
-        public IActionResult Create(ACGMappingTable model)
+        [HttpPost]
+        public IActionResult Create(AnimeViewModel model)
         {
-            _acgMappingRepository.Create(model);
+            _acgBasicIntroductionRepository.Create(model);
 
             return RedirectToAction("Index");
         }

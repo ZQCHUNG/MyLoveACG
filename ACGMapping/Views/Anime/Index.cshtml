@@ -10,7 +10,7 @@
     Layout = "_Layout";
 }
 
-@using (Html.BeginForm("Create", "Anime", FormMethod.Post))
+@using (Html.BeginForm("Create", "Anime", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     <div class="container">
         <div class="row">
@@ -23,11 +23,11 @@
                     @Html.DisplayNameFor(o => o.Name)
                     @Html.TextBoxFor(o => o.Name, "", new { @class = "form-control" })
                 </div>
-                <div class="col-lg-4">
+                @*<div class="col-lg-4">
                     @Html.DisplayNameFor(o => o.PublicTime)
                     @Html.TextBoxFor(o => o.PublicTime, "", new { @class = "form-control" })
-                </div>
-                <div class="col-lg-4">
+                </div>*@
+                @*<div class="col-lg-4">
                     @Html.DisplayNameFor(o => o.ComicEpisode)
                     @Html.TextBoxFor(o => o.ComicEpisode, "", new { @class = "form-control" })
                 </div>
@@ -42,14 +42,15 @@
                 <div class="col-lg-4">
                     @Html.DisplayNameFor(o => o.NovelEpisode)
                     @Html.TextBoxFor(o => o.NovelEpisode, "", new { @class = "form-control" })
-                </div>
+                </div>*@
                 <div class="col-lg-4">
                     @Html.DisplayNameFor(o => o.Profile)
                     @Html.TextBoxFor(o => o.Profile, "", new { @class = "form-control" })
                 </div>
                 <div class="col-lg-4">
                     @Html.DisplayNameFor(o => o.ThumbnailPath)
-                    @Html.TextBoxFor(o => o.ThumbnailPath, "", new { @class = "form-control" })
+
+                    <input type="file" name="FormFile" class="form-control" multiple accept="image/*" />上傳附檔
                 </div>
                 <div class="col-lg-12">
                     <input type="submit" class="btn btn-danger btnCreate" value="新增" />

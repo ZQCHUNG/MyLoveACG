@@ -1,10 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace ACGMapping.Models
 {
-    public class AnimeViewModel : ACGMappingTable
+    public class AnimeViewModel : ACGBasicIntroductionTable
     {
         public AnimeViewModel()
         {
@@ -14,5 +15,8 @@ namespace ACGMapping.Models
 
         [DisplayName("已存在名稱")]
         public string ExistNames { get; set; }
+
+        [DisplayName("附檔")]
+        public IFormFile FormFile { get; set; }
     }
 }

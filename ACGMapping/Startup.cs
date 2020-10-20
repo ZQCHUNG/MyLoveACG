@@ -34,11 +34,11 @@ namespace ACGMapping
 
             services.AddDbContext<MyContext>(options =>
             {
-                var conn = Configuration.GetConnectionString("DefaultConnection");
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
             });
 
             services.AddScoped<IRepository<ACGMappingTable, int>, ACGMappingRepository>();
+            services.AddScoped<IRepository<ACGBasicIntroductionTable, int>, ACGBasicIntroductionRepository>();
 
             //services.AddControllersWithViews().AddNewtonsoftJson();
         }
@@ -63,7 +63,7 @@ namespace ACGMapping
             app.UseRouting();
 
             app.UseAuthorization();
-            //dbContext.Database.EnsureCreated();
+            dbContext.Database.EnsureCreated();
 
             app.UseEndpoints(endpoints =>
             {

@@ -1,0 +1,11 @@
+﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=77faa0e4_002De5fd_002D4a1d_002Daa61_002Da70023380615/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="Create_StateUnderTest_ExpectedBehavior" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::A2059C89-AB21-4D5E-9E2F-15C595A0B3C5::.NETCoreApp,Version=v3.1::ACGMapping.Controllers.AnimeControllerTests.Create_StateUnderTest_ExpectedBehavior&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=f88587dc_002D87e6_002D4b9f_002Db345_002D9a9cb01cb348/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="Create_StateUnderTest_ExpectedBehavior #2" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::A2059C89-AB21-4D5E-9E2F-15C595A0B3C5::.NETCoreApp,Version=v3.1::ACGMapping.Controllers.AnimeControllerTests.Create_StateUnderTest_ExpectedBehavior&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>
