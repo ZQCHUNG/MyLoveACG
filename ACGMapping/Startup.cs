@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using ACGMapping.Controllers;
+using ACGMapping.InfraStructure.DB;
+using ACGMapping.InfraStructure.DB.Repo;
+using ACGMapping.InfraStructure.Interface;
+using ACGMapping.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -33,6 +37,10 @@ namespace ACGMapping
                 var conn = Configuration.GetConnectionString("DefaultConnection");
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
             });
+
+            services.AddScoped<IRepository<ACGMappingTable, int>, ACGMappingRepository>();
+
+            //services.AddControllersWithViews().AddNewtonsoftJson();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

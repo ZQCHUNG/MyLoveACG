@@ -1,7 +1,7 @@
 ﻿using ACGMapping.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace ACGMapping.Controllers
+namespace ACGMapping.InfraStructure.DB
 {
     public class MyContext : DbContext
     {
@@ -10,6 +10,6 @@ namespace ACGMapping.Controllers
             
         }
 
-        public DbSet<ACGInfoModel> AnimeTable { get; set; } 
+        public DbSet<ACGMappingTable> ACGMappingTable { get; set; } 
     }
 }
