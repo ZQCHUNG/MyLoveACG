@@ -17,6 +17,6 @@ namespace ACGMapping.Models
         public string ExistNames { get; set; }
 
         [DisplayName("附檔")]
-        public IFormFile FormFile { get; set; }
+        public List<IFormFile> FormFile { get; set; }
     }
 }

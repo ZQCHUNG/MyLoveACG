@@ -5,6 +5,8 @@ namespace ACGMapping.InfraStructure.ENum
     public enum EStatus
     {
         [Description("-1")]
-        未選擇
+        未選擇,
+        Success,
+        Failed
     }
 }

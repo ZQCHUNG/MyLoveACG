@@ -53,5 +53,10 @@ namespace ACGMapping.InfraStructure.DB.Repo
         {
             return _context.ACGBasicIntroductionTable.Where(expression);
         }
+
+        public IEnumerable<ACGBasicIntroductionTable> AllEntities()
+        {
+            return _context.ACGBasicIntroductionTable.Where(o => o.Status != 99);
+        }
     }
 }

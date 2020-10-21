@@ -12,5 +12,7 @@ namespace ACGMapping.InfraStructure.Interface
         void Delete(TKey id);
         TEntity FindById(TKey id);
         IEnumerable<TEntity> Find(Expression<Func<TEntity, bool>> expression);
+
+        IEnumerable<TEntity> AllEntities();
     }
 }
