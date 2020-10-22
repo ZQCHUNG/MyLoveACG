@@ -26,7 +26,7 @@ namespace ACGMapping.Models
         public string NovelEpisode { get; set; } 
 
         [DisplayName("出版日期")]
-        public DateTime PublicTime { get; set; } 
+        public DateTime? PublicTime { get; set; } 
 
         [DisplayName("建立時間")]
         public DateTime CreateDateTime { get; set; } 

@@ -1,0 +1,72 @@
+﻿@model FillComicViewModel
+
+
+<style type="text/css">
+    .btnCreate {
+        margin-top: 10px;
+    }
+</style>
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+@Html.HiddenFor(o => o.BasicIntroductionId)
+@Html.HiddenFor(o => o.Id)
+@Html.HiddenFor(o => o.CreateDateTime)
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="col-lg-4">
+                @Html.DisplayNameFor(o => o.Name)
+                @Html.TextBoxFor(o => o.Name, "", new { @class = "form-control", @readonly = "Readonly" })
+            </div>
+            <div class="col-lg-4">
+                @Html.DisplayNameFor(o => o.PublicTime)
+                @Html.TextBoxFor(o => o.PublicTime, "", new { @class = "form-control timePicker" })
+            </div>
+            <div class="col-lg-4">
+                @Html.DisplayNameFor(o => o.ComicEpisode)
+                @Html.TextBoxFor(o => o.ComicEpisode, "", new { @class = "form-control" })
+            </div>
+            <div class="col-lg-4">
+                @Html.DisplayNameFor(o => o.AnimeSeason)
+                @Html.TextBoxFor(o => o.AnimeSeason, "", new { @class = "form-control" })
+            </div>
+            <div class="col-lg-4">
+                @Html.DisplayNameFor(o => o.AnimeEpisode)
+                @Html.TextBoxFor(o => o.AnimeEpisode, "", new { @class = "form-control" })
+            </div>
+            <div class="col-lg-4">
+                @Html.DisplayNameFor(o => o.NovelEpisode)
+                @Html.TextBoxFor(o => o.NovelEpisode, "", new { @class = "form-control" })
+            </div>
+            <div class="col-lg-4">
+                @Html.DisplayNameFor(o => o.Profile)
+                @Html.TextBoxFor(o => o.Profile, "", new { @class = "form-control" })
+            </div>
+            <div class="col-lg-12">
+                <input type="submit" class="btn btn-danger btnCreate" value="@ViewBag.Title" />
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(".timePicker").datepicker({
+        dateFormat: 'yy/mm/dd',
+        changeYear: true,
+        changeMonth: true,
+        numberOfMonths: 1,
+        onClose: function (selectedDate) {
+            //var min = $(this).datepicker('getDate') || new Date();
+            //var max = new Date(min.getTime());
+        }
+    });
+
+    $(document).ready(function () {
+        if ($("#PublicTime").val() === "0001/1/1 上午 12:00:00") {
+            $("#PublicTime").val("");
+        }
+    });
+</script>
+

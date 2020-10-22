@@ -7,6 +7,7 @@ namespace ACGMapping.InfraStructure.ENum
         [Description("-1")]
         未選擇,
         Success,
-        Failed
+        Failed,
+        變更
     }
 }

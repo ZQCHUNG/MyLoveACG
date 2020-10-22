@@ -1,5 +1,6 @@
-﻿@model AnimeDetailViewModel
-
+﻿@using ACGMapping.InfraStructure.ENum
+@using ACGMapping.InfraStructure.Extensions
+@model AnimeDetailViewModel
 @{
     ViewBag.Title = "title";
     Layout = "_Layout";
@@ -42,14 +43,19 @@
                 @Html.DisplayTextFor(o => item.NovelEpisode)
             </div>
             <div class="content col-lg-1">
-                @Html.DisplayNameFor(o => item.PublicTime)<br/>
-                @item.PublicTime.ToString("yyyy/MM/dd")
+                @Html.DisplayNameFor(o => item.PublicTime)<br />
+                @if (item.PublicTime != null)
+                {
+                    @item.PublicTime.Value.Date
+                }
             </div>
             <div class="content col-lg-6">
                 @Html.DisplayNameFor(o => item.Profile)<br/>
                 @Html.DisplayTextFor(o => item.Profile)
             </div>
-            <div class="col-lg-12"></div>
+            <div class="content col-lg-1">
+                <a class="btn btn-info" id="edit" href="@Url.Action("ReFillComicMapping","Anime", new {BasicIntroductionId = Model.AnimeViewModel.Id, Model.AnimeViewModel.Name, item.Id })">編輯</a>
+            </div>
         }
     }
 </div>

@@ -1,0 +1,12 @@
+﻿@model FillComicViewModel
+
+@{
+    ViewBag.Title = "變更";
+    Layout = "_Layout";
+}
+
+@using (Html.BeginForm("UpdateComicMappingInfo", "Anime", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.Partial("_FillComicMapping")
+}
+
