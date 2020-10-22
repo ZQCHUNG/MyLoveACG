@@ -4,5 +4,52 @@
     ViewBag.Title = "title";
     Layout = "_Layout";
 }
+<style type="text/css">
+    .content {
+        margin-bottom: 10px;
+        padding: 10px;
+        border: solid 1px black;
+    }
+</style>
 
-
+<div class="row" style="margin: 20px; ">
+    <div class="col-lg-12 ">
+        <a class="btn btn-danger" id="createNew" href="@Url.Action("FillComicMapping","Anime", new {BasicIntroductionId = Model.AnimeViewModel.Id, Model.AnimeViewModel.Name})">新增</a>
+    </div>
+    <div class="col-lg-12">
+        <hr />
+        @Model.AnimeViewModel.Name
+        <img width="120" height="120" src="@Url.Action("GetImage", "Anime", new {id = Model.AnimeViewModel.Id})">
+        <hr />
+    </div>
+    @{
+        foreach (var item in Model.AcgMappingTables)
+        {
+            <div class="content col-lg-1">
+                @Html.DisplayNameFor(o => item.ComicEpisode)<br/>
+                @Html.DisplayTextFor(o => item.ComicEpisode)
+            </div>
+            <div class="content col-lg-1">
+                @Html.DisplayNameFor(o => item.AnimeSeason)<br/>
+                @Html.DisplayTextFor(o => item.AnimeSeason)
+            </div>
+            <div class="content col-lg-1">
+                @Html.DisplayNameFor(o => item.AnimeEpisode)<br/>
+                @Html.DisplayTextFor(o => item.AnimeEpisode)
+            </div>
+            <div class="content col-lg-1">
+                @Html.DisplayNameFor(o => item.NovelEpisode)<br/>
+                @Html.DisplayTextFor(o => item.NovelEpisode)
+            </div>
+            <div class="content col-lg-1">
+                @Html.DisplayNameFor(o => item.PublicTime)<br/>
+                @item.PublicTime.ToString("yyyy/MM/dd")
+            </div>
+            <div class="content col-lg-6">
+                @Html.DisplayNameFor(o => item.Profile)<br/>
+                @Html.DisplayTextFor(o => item.Profile)
+            </div>
+            <div class="col-lg-12"></div>
+        }
+    }
+</div>

@@ -31,6 +31,9 @@ namespace ACGMapping.Models
         [DisplayName("建立時間")]
         public DateTime CreateDateTime { get; set; } 
 
+        [DisplayName("簡介")]
+        public string Profile { get; set; }
+
          public int Status { get; set; } 
          public int BasicIntroductionId { get; set; } 
     }

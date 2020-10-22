@@ -31,13 +31,9 @@ namespace ACGMapping.Controllers
             _configuration = configuration;
         }
 
-        public IActionResult Index(AnimeViewModel model)
+        public IActionResult Index()
         {
-            //var names = _acgBasicIntroductionRepository.Find(o => o.Status != 99).Select(o => o.Name).Distinct().ToList();
-            
-            //model.Names = _elementGeneratorService.CreateListItems(names, "-1");
-
-            return View(model);
+            return View();
         }
 
         [HttpPost]
@@ -47,7 +43,7 @@ namespace ACGMapping.Controllers
 
             _acgBasicIntroductionRepository.Create(model);
 
-            return RedirectToAction("Index");
+            return RedirectToAction("Index", "Home");
         }
 
         private async Task UploadFile(AnimeViewModel model)
@@ -58,7 +54,7 @@ namespace ACGMapping.Controllers
                 {
                     var guid = Guid.NewGuid().ToString();
                     var path = Path.Combine(_configuration.GetValue<string>("ThumbnailFolderPath"), guid);
-                    using (var stream = new FileStream(path, FileMode.Create))
+                    await using (var stream = new FileStream(path, FileMode.Create))
                     {
                         await file.CopyToAsync(stream);
                     }
@@ -77,9 +73,29 @@ namespace ACGMapping.Controllers
             return File(image, "image/jpg");
         }
 
-        public IActionResult Detail(int id)
+        public IActionResult Detail(int? id)
         {
-            return View();
+            var model = new AnimeDetailViewModel();
+
+            if (id != null)
+            {
+                var targetTable = _acgBasicIntroductionRepository.FindById(id.Value);
+
+                if (targetTable == null)
+                {
+                    RedirectToAction("Index", "Home");
+                }
+
+                model.AnimeViewModel = targetTable;
+            }
+            else
+            {
+                RedirectToAction("Index", "Home");
+            }
+
+            model.AcgMappingTables = _acgMappingRepository.AllEntities().ToList();
+
+            return View(model);
         }
 
         public string IsExistSameComicName(string name)
@@ -90,6 +106,18 @@ namespace ACGMapping.Controllers
             }
 
             return EStatus.Failed.ToString();
+        }
+
+        public IActionResult FillComicMapping(FillComicViewModel model)
+        {
+            return View(model);
+        }
+
+        public IActionResult AddComicMappingInfo(FillComicViewModel model)
+        {
+            _acgMappingRepository.Create(model);
+
+            return RedirectToAction("Detail", new { id = model.BasicIntroductionId });
         }
     }
 }
